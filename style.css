@@ -1,0 +1,134 @@
+body{
+	background:black;
+    color: white;
+}
+
+.container{
+	display: flex;
+	flex-direction: row;
+	justify-content:evenly-between ;
+	align-items: center;
+}
+
+.name{
+	margin: 0px;
+	font-weight: bold;
+	font-size: 50px;
+	color: #00ED00;
+}
+
+.thumbs{
+	width: 150px;
+	height: 150px;
+	background: transparent;
+}
+
+.left-down{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.emoj{
+	width: 100%;
+    margin: 5px;
+	padding: 10px;
+	border: 3px solid white;
+	border-radius: 50%;
+	cursor: pointer;
+	background: transparent;
+}
+
+.left{
+	margin-left: 10px;
+	width: 200px;
+	margin-top: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.right{
+	width:300px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+.mid{
+	display: flex;
+	flex-direction: column;
+	align-self: flex-start;
+	align-items: center;
+	flex: 1;
+	max-width: 820px;
+}
+
+.mid-down{
+	margin-top: 100px;
+}
+.intothumbs{
+	width: 200px;
+	height: 200px;
+}
+.disp{
+	font-size: 50px;
+	font-weight: bold;
+}
+.right-down{
+    margin-left: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: evenly-between;
+	flex-direction: row;
+	gap: 50px;
+}
+
+.title{
+	font-size: 30px;
+	font-weight: bold;
+	color: #00ED00;
+
+}
+
+.right-left,.right-right{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+	gap:20px;
+}
+
+.ctext,.htext{
+	text-align: center;
+	font-size: 60px;
+	margin: 0px;
+}
+.you,.comp{
+  background:#00ED00;
+  color: black;
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 100px; 
+  height: 100px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reset{
+	background: red;
+	margin-right: 20px;
+	cursor: pointer;
+	color: #00ED00;
+	background: transparent;
+	font-size: 20px;
+	padding: 20px;
+	border-radius: 50%;
+}
+.right-bottom {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

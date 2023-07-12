@@ -1,0 +1,145 @@
+<html>
+	<head>
+		<title>rock paper scissors</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="left">
+				<div class="left-down">
+					<button onclick="rollstart('rock')" class="emoj">
+						<img src="images/rock.png" class="thumbs" />
+					</button>
+					<button class="emoj" onclick="rollstart('paper')">
+						<img src="images/paper.png" class="thumbs" />
+					</button>
+					<button class="emoj" onclick="rollstart('scissor')">
+						<img src="images/scissor.png" class="thumbs" />
+					</button>
+				</div>
+			</div>
+
+			<div class="mid">
+				<div class="mid-top">
+					<p class="name">Rock Paper Scissor</p>
+				</div>
+				<div class="mid-down">
+					<p class="move-chossen"></p>
+				</div>
+
+				<p class="resdisplay"></p>
+			</div>
+
+			<div class="right">
+				<div class="right-top"></div>
+				<div class="right-down">
+					<div class="right-left">
+						<div class="title">You</div>
+						<div class="you">
+							<p class="htext">0</p>
+						</div>
+					</div>
+					<div class="right-right">
+						<div class="title">Computer</div>
+						<div class="comp">
+							<p class="ctext">0</p>
+						</div>
+					</div>
+
+					<p class="result"></p>
+				</div>
+				<div class="right-bottom">
+					<button onclick=" 
+                     reset();
+					" class="reset">Reset</button>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script>
+		let game = {
+			cwin: 0,
+			hwin: 0,
+		};
+   
+        let reset=()=>{game.cwin=0,game.hwin=0;
+
+            const elementresh = document.querySelector(".htext");
+			const elementresc = document.querySelector(".ctext");
+			
+			elementresh.innerHTML=`${game.hwin}`;
+			elementresc.innerHTML=`${game.cwin}`;
+}
+
+		function checker(c, u) {
+			if (u == c) return "tie";
+
+			if (u == "scissor" && c == "paper") return "win";
+			else if (u == "scissor") return "lose";
+
+			if (u == "rock" && c == "paper") return "lose";
+			else if (u == "rock") return "win";
+
+			if (u == "paper" && c == "rock") return "win";
+			else if (u == "paper") return "lose";
+		}
+
+		const computermove = () => {
+			let k = Math.random();
+			if (k < 1 / 3) return "rock";
+			else if (k < 2 / 3) return "paper";
+			else return "scissor";
+		};
+
+		function ansshower(ans) {
+			console.log("hello");
+			const movesElement = document.querySelector(".move-chossen");
+			movesElement.innerHTML = `
+            <img src="images/${ans}.png" alt="">  
+            `;
+		}
+
+		function shower(ans, input, cmove) {
+			const movesElement = document.querySelector(".move-chossen");
+
+			let k;
+			if (ans == "win") k = input;
+			else if (ans == "lose") k = cmove;
+			else k = "tie";
+
+			movesElement.innerHTML = `
+         <img class="intothumbs" src="images/${input}.png">
+         <img class="intothumbs" src="images/${cmove}.png">
+         `;
+		}
+
+		function resultupdater(ans) {
+			if (ans === "win") {
+				game.hwin++;
+			} else if (ans === "lose") {
+				game.cwin++;
+			}
+
+			const elementresh = document.querySelector(".htext");
+			const elementresc = document.querySelector(".ctext");
+			
+			elementresh.innerHTML=`${game.hwin}`;
+			elementresc.innerHTML=`${game.cwin}`;
+
+
+			const elementdisp = document.querySelector(".resdisplay");
+			if (ans != "Game ties")
+				elementdisp.innerHTML = `<p class="disp">you ${ans}</p> `;
+			else elementdisp.innerHTML = `<p class="disp">Tie</p> `;
+		}
+
+		let rollstart = (input) => {
+			let cmove = computermove();
+			let ans = checker(cmove, input);
+			shower(ans, input, cmove);
+			resultupdater(ans);
+		};
+
+	</script>
+</html>
