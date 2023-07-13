@@ -1,4 +1,4 @@
- let game=JSON.parse(localStorage.getItem('key'));	
+        let game=JSON.parse(localStorage.getItem('key'));	
          
         let reset=()=>{game.cwin=0,game.hwin=0;
             
@@ -8,6 +8,12 @@
 			elementresh.innerHTML=`${game.hwin}`;
 			elementresc.innerHTML=`${game.cwin}`;
         }
+
+            let elementresh = document.querySelector(".htext");
+				let elementresc = document.querySelector(".ctext");
+			
+			elementresh.innerHTML=`${game.hwin}`;
+			elementresc.innerHTML=`${game.cwin}`;
 
 		function checker(c, u) {
 			if (u == c) return "tie";
@@ -45,7 +51,7 @@
 			else if (ans == "lose") k = cmove;
 			else k = "tie";
 
-			movesElement.innerHTML = `
+		 movesElement.innerHTML = `
          <img class="intothumbs" src="images/${input}.png">
          <img class="intothumbs" src="images/${cmove}.png">
          `;
@@ -61,20 +67,23 @@
             
             let store=JSON.stringify(game); 
             localStorage.setItem('key',store);
- 
-        
-			const elementresh = document.querySelector(".htext");
-			const elementresc = document.querySelector(".ctext");
-			
-			elementresh.innerHTML=`${game.hwin}`;
-			elementresc.innerHTML=`${game.cwin}`;
-
-
+             
+            update(); 
 			const elementdisp = document.querySelector(".resdisplay");
 			if (ans != "Game ties")
 				elementdisp.innerHTML = `<p class="disp">you ${ans}</p> `;
 			else elementdisp.innerHTML = `<p class="disp">Tie</p> `;
 		}
+           
+            function update() {
+            	let elementresh = document.querySelector(".htext");
+			let elementresc = document.querySelector(".ctext");
+			
+			elementresh.innerHTML=`${game.hwin}`;
+			elementresc.innerHTML=`${game.cwin}`;
+
+            }
+		    
 
 		let rollstart = (input) => {
 			let cmove = computermove();
