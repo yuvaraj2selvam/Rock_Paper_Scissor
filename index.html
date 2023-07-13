@@ -58,19 +58,17 @@
 	</body>
 
 	<script>
-		let game = {
-			cwin: 0,
-			hwin: 0,
-		};
-   
-        let reset=()=>{game.cwin=0,game.hwin=0;
 
+	    let game=JSON.parse(localStorage.getItem('key'));	
+         
+        let reset=()=>{game.cwin=0,game.hwin=0;
+            
             const elementresh = document.querySelector(".htext");
 			const elementresc = document.querySelector(".ctext");
 			
 			elementresh.innerHTML=`${game.hwin}`;
 			elementresc.innerHTML=`${game.cwin}`;
-}
+        }
 
 		function checker(c, u) {
 			if (u == c) return "tie";
@@ -115,12 +113,17 @@
 		}
 
 		function resultupdater(ans) {
+            
 			if (ans === "win") {
 				game.hwin++;
 			} else if (ans === "lose") {
 				game.cwin++;
-			}
-
+			} 
+            
+            let store=JSON.stringify(game); 
+            localStorage.setItem('key',store);
+ 
+        
 			const elementresh = document.querySelector(".htext");
 			const elementresc = document.querySelector(".ctext");
 			
