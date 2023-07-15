@@ -1,5 +1,10 @@
         let game=JSON.parse(localStorage.getItem('key'));	
-         
+        if(game==NULL){
+		game={
+			hwin:0,
+			cwin:0
+		}
+	}
         let reset=()=>{game.cwin=0,game.hwin=0;
             
             const elementresh = document.querySelector(".htext");
