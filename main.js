@@ -1,10 +1,12 @@
-        let game=JSON.parse(localStorage.getItem('key'));	
-        if(game==NULL){
-		game={
-			hwin:0,
-			cwin:0
-		}
-	}
+        let game=JSON.parse(localStorage.getItem('key'));
+        if(!game)
+        {
+        game={
+              hwin:0,
+              cwin:0
+             }
+        }	
+         
         let reset=()=>{game.cwin=0,game.hwin=0;
             
             const elementresh = document.querySelector(".htext");
@@ -88,8 +90,7 @@
 			elementresc.innerHTML=`${game.cwin}`;
 
             }
-		    
-
+		   
 		let rollstart = (input) => {
 			let cmove = computermove();
 			let ans = checker(cmove, input);
