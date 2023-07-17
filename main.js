@@ -1,5 +1,10 @@
-        let game=JSON.parse(localStorage.getItem('key'));	
-         
+        let game=JSON.parse(localStorage.getItem('key')) || {
+        	cwin:0,
+        	hwin:0
+        }	
+        
+
+
         let reset=()=>{game.cwin=0,game.hwin=0;
             
             const elementresh = document.querySelector(".htext");
@@ -54,10 +59,9 @@
 			rollstart(computermove());
 			}, 1000);
 			flag=0;
-
            }
            else{
-           	elementchange.innerHTML="Auto play Disabled";
+           	 elementchange.innerHTML="Auto play Disabled";
              flag=1;
              clearInterval(intid);
            }
