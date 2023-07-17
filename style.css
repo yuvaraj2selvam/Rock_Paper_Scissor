@@ -115,7 +115,7 @@ body{
   justify-content: center;
 }
 
-.reset{
+.autoplay,.reset{
 	background: red;
 	margin-right: 20px;
 	cursor: pointer;
@@ -126,7 +126,7 @@ body{
 	border-radius: 50%;
 }
 .right-bottom {
-    margin-top: auto;
+    margin-top: 15px;
     display: flex;
     justify-content: center;
     align-items: center;

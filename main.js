@@ -1,11 +1,4 @@
-        let game=JSON.parse(localStorage.getItem('key'));
-        if(!game)
-        {
-        game={
-              hwin:0,
-              cwin:0
-             }
-        }	
+        let game=JSON.parse(localStorage.getItem('key'));	
          
         let reset=()=>{game.cwin=0,game.hwin=0;
             
@@ -17,7 +10,7 @@
         }
 
             let elementresh = document.querySelector(".htext");
-				let elementresc = document.querySelector(".ctext");
+			let elementresc = document.querySelector(".ctext");
 			
 			elementresh.innerHTML=`${game.hwin}`;
 			elementresc.innerHTML=`${game.cwin}`;
@@ -48,6 +41,26 @@
 			movesElement.innerHTML = `
             <img src="images/${ans}.png" alt="">  
             `;
+		}
+
+        let flag=1;
+        let intid;
+
+		function autoplay(){
+           let elementchange=document.querySelector('.autoplay');
+           if(flag){
+           	elementchange.innerHTML="Auto play Enabled";
+           	intid=setInterval(() => {
+			rollstart(computermove());
+			}, 1000);
+			flag=0;
+
+           }
+           else{
+           	elementchange.innerHTML="Auto play Disabled";
+             flag=1;
+             clearInterval(intid);
+           }
 		}
 
 		function shower(ans, input, cmove) {
@@ -90,7 +103,8 @@
 			elementresc.innerHTML=`${game.cwin}`;
 
             }
-		   
+		    
+
 		let rollstart = (input) => {
 			let cmove = computermove();
 			let ans = checker(cmove, input);
